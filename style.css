@@ -1,0 +1,242 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* Background image (index only) */
+body:not(.green-bg):not(.yellow-bg) {
+    background-image: url("images/pinkbackground.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Pink box in index*/
+.pink-box {
+    position: relative;
+    background: #ffb6c1;
+    padding: 40px 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  
+}
+
+/* Image inside pink box */
+.pink-box .box-image {
+    width: 300px;          /* adjust as needed */
+   margin-top: 50;
+    margin: 10 auto 20px;   /* center & add spacing below */
+    animation: floatScale 2.5s ease-in-out infinite alternate;
+   
+}
+
+/* descp inside pink box */
+.pink-box .subtitle {
+    color: rgb(255, 255, 255);            /* white text */
+    font-size: 21px;
+    margin-bottom: -120px;     /* spacing below subtitle */
+    margin-right: -240px;
+    opacity: 0;              /* start invisible */
+    transform: translateY(10px);  /* slight downward offset */
+    animation: subtitleFade 2s ease forwards;
+    animation-delay: 1.5s;   /* appear after title */
+   font-family: Brush Script Std;
+}
+
+.special-image {
+    width: 30px;        /* bigger */
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+}
+
+/* Keyframes for subtitle fade-in */
+@keyframes subtitleFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Title animation */
+.title {
+    margin-bottom: 25px;
+    color: #5a0035;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: titleFade 4s ease forwards;
+ font-family:   'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Handwriting;
+}
+
+/* Buttons */
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background: #ff69b4;
+    color: white;
+}
+
+button:hover {
+    background: #ff1493;
+}
+
+/* Image gallery container */
+.image-gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* responsive wrap on smaller screens */
+    margin: 30px 0;
+}
+
+/* Each image item */
+.image-item {
+    text-align: center;
+    margin: 15px;
+    max-width: 200px;
+}
+
+/* Images */
+.image-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.image-item img:hover {
+    transform: scale(1.05); /* subtle hover effect */
+}
+
+/* Image descriptions */
+.image-desc {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+
+/* Fade animations */
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+
+/* Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+  /* ✨ h1 animation */
+  .pink-box h1 {
+    margin-bottom: 25px;
+    color: #5a0035;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: titleFade 3s ease forwards;
+}
+
+@keyframes titleFade {
+    to {
+        opacity: 2;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatScale {
+    0% {
+        transform: translateY(5px) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1);
+    }
+    100% {
+        transform: translateY(2px) scale(1);
+    }
+}
+
+/* Grid container */
+.grid-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* spacing between items */
+    margin-top: 30px;
+    justify-items: center;
+}
+
+/* Each grid item */
+.grid-item {
+    text-align: center;
+    background: #fff8e0;
+    padding: -50px 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 350px; /* controls item width */
+}
+
+/* Images */
+.grid-image {
+    width: 70px;
+    height: auto;
+    border-radius: 60px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+}
+
+/* Description */
+.grid-desc {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Responsive: on small screens stack in 1 column */
+@media (max-width: 200px) {
+    .grid-images {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-item {
+        max-width: 100px;
+    }
+
+    .grid-image {
+        width: 60%;
+    }
+}
+
+.local-video {
+    width: 100%;       /* responsive */
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin: 20px 0;
+}
